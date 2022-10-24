@@ -1,2 +1,2 @@
-# MiniSiteTemplate
-Site template for JS projects
+# ZeroHun
+JS project moving from zero to hundred faster than flash
