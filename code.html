@@ -59,17 +59,54 @@
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            const helloWorld = () => {
-                                alert('Hello World!');
+                            // get the values from the inputs on the app page
+                            const getValues = () => {
+                                let firstNum = parseInt(document.querySelector('#startValue').value)
+                                let lastNum = parseInt(document.querySelector('#endValue').value)
+
+                                let numbers = generateNumbers(firstNum, lastNum);
+
+                                displayNumbers(numbers);
+                            }
+                            // generate numbers from the start value to the end value
+                            const generateNumbers = (startVal, endVal) => {
+                                let nums = [];
+
+                                for (let i = startVal; i <= endVal; i++) {
+                                    nums.push(i);
+                                }
+                                return nums;
+                            }
+
+                            // Display the numbers and make even numbers bold
+                            const displayNumbers = (nums) => {
+                                let templateRows = '';
+
+                                nums.forEach(num => {
+                                    let className = '';
+
+                                    if (num % 2 === 0) {
+                                        className = 'even';
+                                    } 
+                                    
+                                    templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>
+                                });
+
+                                document.querySelector('#results').innerHTML = templateRows;
                             }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4 py-1">
-                    <p>The Code is structured in one function.</p>
-                    <h5>helloWorld</h5>
-                    <p>helloWorld is a function that displays an alert with a message "Hello World!"</p>
+                    <p>The Code is structured in three major functions.</p>
+                    <h5>getValues()</h5>
+                    <p>A function that takes in the two input values as numbers; calls the generateNumbers function with the two numbers as arguments
+                        and displays a list of generated integers starting from the first number to the second number with the displayNumbers function.</p>
+                    <h5>generateNumbers()</h5>
+                    <p>generates an array of integers between two numbers using the first parameter as a starting value and the second as the end value.</p>
+                    <h5>displayNumbers()</h5>
+                    <p>A function that takes in the array of generated intergers and displays each number as table data in a table row.
+                        Even numbers within the collection are given a className with styles that make them appear as bold.</p>
                 </div>
             </div>
         </div>
